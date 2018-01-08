@@ -1,0 +1,24 @@
+{
+  "name": "react3dmustang",
+  "description": "try to use react with three.js",
+  "main": "index.js",
+  "authors": [
+    "Elvin Yeung"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "three.js",
+    "react"
+  ],
+  "homepage": "https://github.com/yorkee/react3dmustang",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.4"
+  }
+}
