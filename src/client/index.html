@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Three.js with React components.</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+<script src="bower/jquery/dist/jquery.min.js"></script>
+<script src="bower/three.js/build/three.min.js"></script>
+<script src="bower/three.js/examples/js/controls/TrackballControls.js"></script>
+<script src="bower/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
+<script src="bower/three.js/examples/js/loaders/STLLoader.js"></script>
+
+<script>
+
+  var controls, camera, glScene, cssScene, glRenderer, cssRenderer;
+
+  // Creates WebGL Renderer
+  function createGlRenderer() {
+    var glRenderer = new THREE.WebGLRenderer({alpha:true});
+    glRenderer.setClearColor(0xECF8FF);
+    glRenderer.setPixelRatio(window.devicePixelRatio);
+    glRenderer.setSize(window.innerWidth, window.innerHeight);
+    glRenderer.domElement.style.position = 'absolute';
+    glRenderer.domElement.style.zIndex = 1;
+    glRenderer.domElement.style.top = 0;
+    return glRenderer;
+  }
+
+  // Creates CSS Renderer
+  function createCssRenderer() {
+    var cssRenderer = new THREE.CSS3DRenderer();
+    cssRenderer.setSize(window.innerWidth, window.innerHeight);
+    cssRenderer.domElement.style.position = 'absolute';
+    glRenderer.domElement.style.zIndex = 0;
+    cssRenderer.domElement.style.top = 0;
+    return cssRenderer;
+  }
+
+// load dae object
+function loadDae(glRenderer){
+      // load dae 
+      var loader = new THREE.STLLoader();
+
+      var scaling = 1;
+      var zOffset = -50;
+      var yOffset = 5;
+
+      var material = new THREE.MeshPhongMaterial( {
+        color: 0x2b6be4, 
+        specular: 0x111111,
+        shininess: 200 }); 
+
+      loader.load( './public/models/Ford_mustang.stl', function (geometry){        
+        var object = new THREE.Mesh( geometry, material );
+        object.scale.set(scaling, scaling, scaling)
+        object.rotation.x = Math.PI *3/2;
+        object.translateZ(zOffset*scaling);
+        object.translateY(yOffset*scaling);
+        glScene.add(object);
+        glRenderer.render(glScene, camera);
+      });
+};
+
+  // Creates 3d webpage object
+  function create3dPage(id, w, h, position, rotation) {
+
+    function copyXyz(obj1, obj2){
+      obj1.x = obj2.x;
+      obj1.y = obj2.y;
+      obj1.z = obj2.z;
+    }
+    var material = new THREE.MeshBasicMaterial({
+      color: 0x000000,
+      opacity: 0.0,
+      side: THREE.DoubleSide
+    });
+    var geometry = new THREE.PlaneGeometry(w, h);
+    var plane = new THREE.Mesh(geometry, material);
+    copyXyz(plane.position, position);
+    copyXyz(plane.rotation, rotation);
+
+    var html = '<div id="'+id+'"/></div>';
+    var div = document.createElement('div');
+    $(div).html(html);
+
+    var cssObject = new THREE.CSS3DObject(div);
+    copyXyz(cssObject.position, position);
+    copyXyz(cssObject.rotation, rotation);
+
+    glScene.add(plane);
+    cssScene.add(cssObject);
+  }
+
+  function initialize() {
+    camera = new THREE.PerspectiveCamera(
+      45,
+      window.innerWidth / window.innerHeight,
+      1,
+      10000);
+    camera.position.set(0, 100, 300);
+    controls = new THREE.TrackballControls(camera);
+    glRenderer = createGlRenderer();
+    cssRenderer = createCssRenderer();
+    //document.body.appendChild(glRenderer.domElement);
+    document.body.appendChild(cssRenderer.domElement);
+    cssRenderer.domElement.appendChild(glRenderer.domElement);
+    glScene = new THREE.Scene();
+    cssScene = new THREE.Scene();
+
+    var ambientLight = new THREE.AmbientLight(0x555555);
+    glScene.add(ambientLight);
+    
+    var directionalLight = new THREE.DirectionalLight(0xffffff);
+    directionalLight.position.set( -.5, .5, -1.5 ).normalize();
+    
+    glScene.add(directionalLight);
+    create3dPage(
+      "speedo",
+      100, 50,
+      new THREE.Vector3(100, 50, 50),
+      new THREE.Vector3(0, 0, 0));
+
+    create3dPage(
+      "fuelGauge",
+      100, 50,
+      new THREE.Vector3(-150, 0, -150),
+      new THREE.Vector3(0, 0, 0));
+
+    var script = document.createElement("script"); // Make a script DOM node
+    script.src = "public/bundle.js"; // Set it's src to the provided URL
+
+    document.head.appendChild(script); 
+    this.loadDae(glRenderer);
+    update();
+  }
+  // Updates scene
+  //
+  function update() {
+    controls.update();
+    glRenderer.render(glScene, camera);
+    cssRenderer.render(cssScene, camera);
+    requestAnimationFrame(update);
+  }
+  // On document ready
+  //
+  $(document ).ready(function() {
+    initialize();
+  });
+</script>
+</body>
+</html>
