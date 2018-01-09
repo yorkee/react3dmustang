@@ -13,7 +13,9 @@ var config = {
   },
    module : {
     loaders : [
-      {
+      { test: /\.css$/, 
+        loader: "style-loader!css-loader" 
+      },{
         test : /\.jsx?/,
         include : APP_DIR,
         loader : 'babel-loader'

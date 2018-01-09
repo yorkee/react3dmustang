@@ -5,7 +5,7 @@ export default class FuelGauge extends React.Component {
   render () {
     return (
       <div>
-        <p> Full...|...Empty</p>
+        <p> Full | Empty</p>
       </div>
     );
   }

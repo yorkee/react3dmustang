@@ -22,7 +22,8 @@
 
 <script>
 
-  var controls, camera, glScene, cssScene, glRenderer, cssRenderer;
+  var controls, camera, glScene, cssScene, glRenderer, cssRenderer,
+    billboardList = [];   
 
   // Creates WebGL Renderer
   function createGlRenderer() {
@@ -99,6 +100,8 @@ function loadDae(glRenderer){
 
     glScene.add(plane);
     cssScene.add(cssObject);
+    billboardList.push(cssObject);
+    billboardList.push(plane);    
   }
 
   function initialize() {
@@ -117,13 +120,19 @@ function loadDae(glRenderer){
     glScene = new THREE.Scene();
     cssScene = new THREE.Scene();
 
+pointLight = new THREE.PointLight( 0xaaaaaa );
+pointLight.position.set( -.5, .5, 1.5 ).normalize();
+camera.add(pointLight);    
+glScene.add(camera);
+
     var ambientLight = new THREE.AmbientLight(0x555555);
     glScene.add(ambientLight);
     
-    var directionalLight = new THREE.DirectionalLight(0xffffff);
-    directionalLight.position.set( -.5, .5, -1.5 ).normalize();
-    
-    glScene.add(directionalLight);
+    //TODO: should add directional light?  
+    // var directionalLight = new THREE.DirectionalLight(0xffffff);
+    // directionalLight.position.set( -.5, .5, 1.5 ).normalize();    
+    // glScene.add(directionalLight);
+
     create3dPage(
       "speedo",
       100, 50,
@@ -147,6 +156,9 @@ function loadDae(glRenderer){
   //
   function update() {
     controls.update();
+    billboardList.forEach(function(item){
+      item.setRotationFromQuaternion(camera.quaternion);
+    });    
     glRenderer.render(glScene, camera);
     cssRenderer.render(cssScene, camera);
     requestAnimationFrame(update);
