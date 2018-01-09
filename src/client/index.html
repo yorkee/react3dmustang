@@ -90,9 +90,8 @@ function loadDae(glRenderer){
     copyXyz(plane.position, position);
     copyXyz(plane.rotation, rotation);
 
-    var html = '<div id="'+id+'"/></div>';
     var div = document.createElement('div');
-    $(div).html(html);
+    div.id = id;
 
     var cssObject = new THREE.CSS3DObject(div);
     copyXyz(cssObject.position, position);
@@ -114,16 +113,15 @@ function loadDae(glRenderer){
     controls = new THREE.TrackballControls(camera);
     glRenderer = createGlRenderer();
     cssRenderer = createCssRenderer();
-    //document.body.appendChild(glRenderer.domElement);
     document.body.appendChild(cssRenderer.domElement);
     cssRenderer.domElement.appendChild(glRenderer.domElement);
     glScene = new THREE.Scene();
     cssScene = new THREE.Scene();
 
-pointLight = new THREE.PointLight( 0xaaaaaa );
-pointLight.position.set( -.5, .5, 1.5 ).normalize();
-camera.add(pointLight);    
-glScene.add(camera);
+    pointLight = new THREE.PointLight( 0xaaaaaa );
+    pointLight.position.set( -.5, .5, 1.5 ).normalize();
+    camera.add(pointLight);    
+    glScene.add(camera);
 
     var ambientLight = new THREE.AmbientLight(0x555555);
     glScene.add(ambientLight);
@@ -167,6 +165,7 @@ glScene.add(camera);
   //
   $(document ).ready(function() {
     initialize();
+    
   });
 </script>
 </body>
