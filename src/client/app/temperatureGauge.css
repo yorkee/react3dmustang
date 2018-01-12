@@ -1,0 +1,73 @@
+
+.donation-meter {
+background-color: #fff;
+border-radius: 30px;
+border:solid grey 2px;
+  width: 30px;
+  padding:0 2px;
+  display:block;
+}
+.glass {
+  background: #e5e5e5;
+  box-shadow: 2px 1px 4px rgba(0,0,0, 0.45) inset;
+  border-radius: 50px 50px 0 0;
+  display: block;
+  height: 50px;
+  margin: 4px 10px 7px;
+  padding: 2px;
+  position: relative;
+  width: 5px;
+}
+.amount {
+  box-shadow: 2px 1px 4px rgba(0,0,0, 0.10) inset;
+  background: #f34e54;
+  border-radius: 50px;
+  display: block;
+  width: 5px;
+  position: absolute;
+   bottom: 2px;
+}
+
+
+.bulb {
+  background: #e5e5e5;
+  border-radius: 50px;
+  box-shadow: 2px 1px 4px rgba(0,0,0, 0.45) inset;
+  display: block;
+  height: 25px;
+  margin: 0 7px 0;
+  padding: 2px;
+  position: relative;
+    top: -10px;
+    right: 7px;
+  width: 25px;
+}
+.red-circle {
+  box-shadow: 3px 1px 8px rgba(0,0,0, 0.45) inset;
+  background: #f34e54;
+  border-radius: 50px;
+  display: block;
+  height: 25px;
+  width: 25px;
+}
+.filler {  
+  background: #f34e54;
+  background:linear-gradient(to right, #c63c44 , #f34e54, #f34e54);
+  border-radius: 50px 50px 0 0;
+  display: block;
+  height: 10px;
+  width: 5px;
+  position: relative;
+    top: -32px;
+    right: -10px;
+  z-index: 30;
+}
+
+#temp{
+  margin: 7px 5px;
+  display: inline-block;
+  font-size: 0.6em;
+  font-family: Arial;
+  font-weight: bold;
+
+}
