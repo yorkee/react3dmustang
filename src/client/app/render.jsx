@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Speedo from './speedo.jsx';
 import FuelGauge from './fuelGauge.jsx';
+import TemperatureGauge from './TemperatureGauge.jsx';
 
 	//TODO:  this is for testing only.  real speed need to be passed in.   	
 	setTimeout(function(){
@@ -10,3 +11,4 @@ import FuelGauge from './fuelGauge.jsx';
 
 render(<Speedo/>, document.getElementById('speedo'));
 render(<FuelGauge/>, document.getElementById('fuelGauge'));
+render(<TemperatureGauge/>, document.getElementById('temperatureGauge'));
