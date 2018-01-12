@@ -114,9 +114,9 @@ function load3DImage(glRenderer){
 
 
   // Creates 3d webpage object
-  function create3dPage(id, w, h, position, rotation) {
+  function create3dPage(id, w, h, position, rotation, isGauge) {
 
-    function copyXyz(obj1, obj2){
+    function copyXyz(obj1, obj2, offset){
       obj1.x = obj2.x;
       obj1.y = obj2.y;
       obj1.z = obj2.z;
@@ -127,9 +127,10 @@ function load3DImage(glRenderer){
       side: THREE.DoubleSide
     });
     var geometry = new THREE.PlaneGeometry(w, h);
-    var plane = new THREE.Mesh(geometry, material);
-    copyXyz(plane.position, position);
-    copyXyz(plane.rotation, rotation);
+    if (isGauge){
+      geometry = new THREE.CircleBufferGeometry(w/2, 10, 0, Math.PI)
+    }
+
 
     var div = document.createElement('div');
     div.id = id;
@@ -137,6 +138,12 @@ function load3DImage(glRenderer){
     var cssObject = new THREE.CSS3DObject(div);
     copyXyz(cssObject.position, position);
     copyXyz(cssObject.rotation, rotation);
+
+    // position.y -=25;
+    // position.y =position.y-10;
+    var plane = new THREE.Mesh(geometry, material);
+    copyXyz(plane.position, position);
+    copyXyz(plane.rotation, rotation);
 
     glScene.add(plane);
     cssScene.add(cssObject);
@@ -176,7 +183,7 @@ function load3DImage(glRenderer){
       "speedo",
       100, 50,
       new THREE.Vector3(100, 50, 50),
-      new THREE.Vector3(0, 0, 0));
+      new THREE.Vector3(0, 0, 0), true);
 
     create3dPage(
       "fuelGauge",

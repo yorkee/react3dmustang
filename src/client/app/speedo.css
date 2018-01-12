@@ -7,6 +7,7 @@
   height: 50px;
   position: absolute;
   width: 100px;
+  padding-bottom: 50px;
 }
 
 #speedometer {
@@ -15,6 +16,7 @@
   overflow: hidden;
   position: relative;
   width: 100px;
+  padding-bottom: 50px;
 }
 
 #speedometer:after {
@@ -34,6 +36,7 @@
   text-align: center;
   width: 70px;
   z-index: 3;
+  padding-bottom: 50px;
 }
 
 #speedoNeedle {
@@ -49,6 +52,7 @@
   transform-origin: 100% 2px;
   transform: rotate(0deg);
   transition: all 1s;
+  margin-bottom:50px;
 }
 
 /*#speedomater:hover #speedoNeedle {
