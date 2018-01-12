@@ -1,5 +1,5 @@
 
-#speedometer:before {
+.gaugemeter:before {
   background: #fbfbfb;
   border-radius: 100px 100px 0 0;
   box-shadow: 3px 1px 8px rgba(0,0,0, 0.15) inset;
@@ -10,7 +10,7 @@
   padding-bottom: 50px;
 }
 
-#speedometer {
+.gaugemeter {
   border-radius: 100px 100px 0 0;
   height: 50px;
   overflow: hidden;
@@ -19,7 +19,7 @@
   padding-bottom: 50px;
 }
 
-#speedometer:after {
+.gaugemeter:after {
   background: radial-gradient(  #C0C0C0,  #808080,  #C0C0C0);
   border-radius: 70px 70px 0 0;
   bottom: 0;
@@ -39,7 +39,7 @@
   padding-bottom: 50px;
 }
 
-#speedoNeedle {
+.gaugeNeedle {
   background: rgba(255, 40, 0, 0.7);
   border-radius: 4px;
   bottom: -4px;
