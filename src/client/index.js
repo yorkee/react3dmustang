@@ -19,7 +19,7 @@
   function createCssRenderer() {
     var cssRenderer = new THREE.CSS3DRenderer();
     cssRenderer.setSize(window.innerWidth, window.innerHeight);
-    cssRenderer.domElement.style.position = 'absolute';
+    // cssRenderer.domElement.style.position = 'absolute';
     glRenderer.domElement.style.zIndex = 0;
     cssRenderer.domElement.style.top = 0;
     return cssRenderer;
@@ -86,7 +86,6 @@
     }
   }
 
-
   // Creates 3d webpage object
   function create3dPage(id, w, h, position, rotation, isGauge) {
 
@@ -100,19 +99,9 @@
       opacity: 0.0,
       side: THREE.DoubleSide
     });
-    // var geometry = new THREE.PlaneGeometry(w, h);
     var geometry = new THREE.RoundedRectGeometry(19, 98);
     if (isGauge) {
       geometry = new THREE.CircleBufferGeometry(w / 2, 36, 0, Math.PI)
-    // } else {
-    //   var trackShape = new THREE.Shape();
-    //   trackShape.moveTo( 40, 40 );
-    //   trackShape.lineTo( 40, 160 );
-    //   trackShape.absarc( 60, 160, 20, Math.PI, 0, true );
-    //   trackShape.lineTo( 80, 40 );
-    //   trackShape.absarc( 60, 40, 20, 2 * Math.PI, Math.PI, true );
-    //   geometry = new THREE.ExtrudeBufferGeometry( trackShape, {} );
-
     }
 
 
@@ -123,8 +112,6 @@
     copyXyz(cssObject.position, position);
     copyXyz(cssObject.rotation, rotation);
 
-    // position.y -=25;
-    // position.y =position.y-10;
     var plane = new THREE.Mesh(geometry, material);
     copyXyz(plane.position, position);
     copyXyz(plane.rotation, rotation);
@@ -166,22 +153,23 @@
     create3dPage(
       "speedo",
       100, 50,
-      new THREE.Vector3(100, 50, 50),
+      new THREE.Vector3(-150, 0, -150),
       new THREE.Vector3(0, 0, 0), true);
 
     create3dPage(
       "fuelGauge",
       100, 50,
-      new THREE.Vector3(-150, 0, -150),
+      new THREE.Vector3(100, 50, 50),
       new THREE.Vector3(0, 0, 0), true);
+
 
     create3dPage(
       "temperatureGauge",
       38, 98,
-      new THREE.Vector3(50, -50, 100),
+      new THREE.Vector3(-150, -10, 70),
       new THREE.Vector3(0, 0, 0));
 
-
+    // loading reactjs components
     var script = document.createElement("script"); // Make a script DOM node
     script.src = "public/bundle.js"; // Set it's src to the provided URL
 
@@ -189,8 +177,8 @@
     load3DImage(glRenderer);
     update();
   }
+
   // Updates scene
-  //
   function update() {
     controls.update();
     billboardList.forEach(function(item) {
@@ -201,8 +189,6 @@
     requestAnimationFrame(update);
   }
   // On document ready
-  //
   $(document).ready(function() {
     initialize();
-
   });
