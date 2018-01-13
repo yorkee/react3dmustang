@@ -1,0 +1,11 @@
+.tirePressure {
+  font-family: Arial;
+  font-size: 0.7em;
+  font-weight: 50;
+  color: #fff;
+  text-align: center;
+  border:solid grey 2px;
+  width:46px;
+  height:16px;
+  background: radial-gradient(  #C0C0C0,  #808080);
+}
