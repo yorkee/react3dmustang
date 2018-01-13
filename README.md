@@ -22,8 +22,9 @@ I use what I learn from Henry Ford Maker Faire, as well as my react3d spike, to 
 1. clone the repo
 2. npm install
 3. bower install 
-4. node server.js
-5. go to localhost:3000
+4. npm run dev
+5. node server.js
+6. go to localhost:3000
 
 
 ## note
