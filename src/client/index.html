@@ -6,19 +6,31 @@
   <title>Three.js with React components.</title>
   <style>
   body {
-    background-color: #ffffff;
+    /*background-color: #ffffff;*/
     margin: 0;
     overflow: hidden;
   }
+
   .header {
-    background-color: red;
+    background:#2097c9
+  }
+
+  #ford {
+    height:4em;
+    padding:0.2em;
+  }
+
+  #mustang {
+    padding:0.2em;
+    float:right;
   }
   </style>
 </head>
 
 <body>
-<!--   <div class="header"><img src="public/img/ford256.png"/></div>
- -->
+  <!-- Make header more responsive by -->
+  <div class="header"><img id="ford" src="public/img/Ford_Motor_Company_Logo.svg"/><img id="mustang" src="public/img/mustang.png"/></div>
+
   <div id="content"></div>
   <script src="bower/jquery/dist/jquery.min.js"></script>
   <script src="bower/three.js/build/three.min.js"></script>

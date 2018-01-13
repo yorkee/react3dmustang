@@ -6,7 +6,9 @@
   // Creates WebGL Renderer
   function createGlRenderer() {
     var glRenderer = new THREE.WebGLRenderer({ alpha: true });
-    glRenderer.setClearColor(0xECF8FF);
+    // glRenderer.setClearColor(0xECF8FF);
+    glRenderer.setClearColor(0xeeeeee);
+    // glRenderer.setClearColor(0x2097c9);
     glRenderer.setPixelRatio(window.devicePixelRatio);
     glRenderer.setSize(window.innerWidth, window.innerHeight);
     glRenderer.domElement.style.position = 'absolute';
@@ -24,6 +26,23 @@
     cssRenderer.domElement.style.top = 0;
     return cssRenderer;
   }
+
+  function drawDescLine(vectorArray) {
+    var material = new THREE.LineBasicMaterial({
+      linewidth: 40,
+      // color: 0xffffff
+      color: 0x000000
+    });
+
+    var geometry = new THREE.Geometry();
+    for (var i=0; i < vectorArray.length; i++){
+      var va = vectorArray[i];
+      geometry.vertices.push(new THREE.Vector3( va.x, va.y, va.z));
+    }
+
+    var line = new THREE.Line( geometry, material );
+    return line ;
+  }  
 
   function load3DImage(glRenderer) {
     var loader = new THREE.JSONLoader();
@@ -80,7 +99,7 @@
       var material = new THREE.MeshFaceMaterial(materials);
       let model = new THREE.Mesh(geometry, material);
       model.rotation.x = Math.PI * 3 / 2;
-      model.rotation.z = Math.PI * 3 / 2;
+      model.rotation.z = Math.PI * 9 / 4;
       model.scale.set(0.5, 0.5, 0.5);
       glScene.add(model);
     }
@@ -103,7 +122,6 @@
     if (isGauge) {
       geometry = new THREE.CircleBufferGeometry(w / 2, 36, 0, Math.PI)
     }
-
 
     var div = document.createElement('div');
     div.id = id;
@@ -150,24 +168,36 @@
     // directionalLight.position.set( -.5, .5, 1.5 ).normalize();    
     // glScene.add(directionalLight);
 
-    create3dPage(
-      "speedo",
-      100, 50,
-      new THREE.Vector3(-150, 0, -150),
+    create3dPage("speedo", 100, 50,
+      new THREE.Vector3(100, 20, -50),
       new THREE.Vector3(0, 0, 0), true);
 
-    create3dPage(
-      "fuelGauge",
-      100, 50,
-      new THREE.Vector3(100, 50, 50),
+    glScene.add(drawDescLine([
+      {x:100, y:20, z:-50},
+      {x:30, y:10, z:10},
+      {x:30, y:0, z:10}]));
+
+    create3dPage("fuelGauge",100, 50,
+      new THREE.Vector3(-150, 50, -150),
       new THREE.Vector3(0, 0, 0), true);
 
+    var lineTwoArray = [
+      {x:-150, y:50, z:-150},
+      {x:-46, y:0, z:-115},
+      {x:-46, y:-15, z:-115}];
+    glScene.add(drawDescLine(lineTwoArray));
 
-    create3dPage(
-      "temperatureGauge",
-      38, 98,
+
+    create3dPage("temperatureGauge", 38, 98,
       new THREE.Vector3(-150, -10, 70),
       new THREE.Vector3(0, 0, 0));
+
+    var lineThreeArray = [
+      {x:-130, y:10, z:70},
+      {x:65, y:0, z:80},
+      {x:65, y:-15, z:80}];
+    glScene.add(drawDescLine(lineThreeArray));
+
 
     // loading reactjs components
     var script = document.createElement("script"); // Make a script DOM node
