@@ -1,9 +1,23 @@
 # react3dmustang
-For my love of Ford Mustang, I decided to use what I learn from GE Maker Faire, as well as my react3d spike, to create this 3D model viewer:
+
+## Reason
+I always want to learn 3D modeling, as well as Reactjs.  I use this as a platform to get my feet wet.
+
+I have seen examples of common js framework wrapping around WebGL components.  However, I rarely seen the otherway.  I decided to take the challenge to have webGL/three.js rendering Reactjs components, while keeping the binding mechanism working in webGL world.
+
+On the side note, since I love Ford Mustang so much, I decided to create something Mustang related.  
+
+I use what I learn from Henry Ford Maker Faire, as well as my react3d spike, to create this 3D model viewer:
 
 ![Screen Shot](https://user-images.githubusercontent.com/1068796/34903729-d14c2eb8-f805-11e7-9d86-f8daf04cd034.png?raw=true "Title")
 
-#Install and Run
+##Requirements
+- node 8.9.2 (anything from 6 to latest should work.  However, I haven't try them yet.)
+- Chrome v63 (or any web browser support WebGL)
+- I tested it only on a mac.  Not sure if other system will render properly.
+
+
+##Install and Run
 
 1. clone the repo
 2. npm install
