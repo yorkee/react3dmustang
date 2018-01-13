@@ -12,16 +12,17 @@
   }
 
   .header {
-    background:#2097c9
+    /*background:#2097c9*/
+    background: linear-gradient(#2097c9, #2097c9, #eeeeee);
   }
 
   #ford {
-    height:4em;
-    padding:0.2em;
+    height:2.7em;
+    padding:0.3em;
   }
 
   #mustang {
-    padding:0.2em;
+    padding:0.3em;
     float:right;
   }
   </style>
@@ -37,6 +38,12 @@
   <script src="bower/three.js/examples/js/controls/TrackballControls.js"></script>
   <script src="bower/three.js/examples/js/renderers/CSS3DRenderer.js"></script>
   <script src="./lib/roundedRectGeometry.js"></script>
+
+  <!-- below should be able to use browserfly to make it more modular-->
+  <script src="./pageObjectFactory.js"></script>
+  <script src="./renderFactory.js"></script>
+  <script src="./load3DModel.js"></script>
+  <script src="./camera.js"></script>
   <script src="./index.js"></script>
 
 <!-- <div style='display:none'>
