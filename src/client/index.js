@@ -37,30 +37,30 @@
 
     add3DPageToApp(
       pageFactory.createGauge("speedo",
-      new THREE.Vector3(100, 20, -50),
+      new THREE.Vector3(100, -60, 70),
       new THREE.Vector3(0, 0, 0),
-      [{x:100, y:20, z:-50},
-        {x:30, y:10, z:10},
-        {x:30, y:0, z:10}]
+      [{x:100, y:-60, z:70},
+        {x:30, y:-20, z:10},
+        {x:30, y:-20, z:-10}]
       ));
 
     add3DPageToApp(
       pageFactory.createGauge("fuelGauge",
-      new THREE.Vector3(-150, 50, -150),
+      new THREE.Vector3(120, 170, 20),
       new THREE.Vector3(0, 0, 0),
-      [{x:-150, y:50, z:-150},
-        {x:-46, y:0, z:-115},
-        {x:-46, y:-15, z:-115}]
+      [{x:120, y:170, z:20},
+        {x:50, y:112, z:5},
+        {x:50, y:112, z:-10}]
       ));
 
     add3DPageToApp(
       pageFactory.createTempGauge(
       "temperatureGauge", 
-      new THREE.Vector3(-150, -10, 70),
+      new THREE.Vector3(-150, -100, 70),
       new THREE.Vector3(0, 0, 0),
-      [{x:-130, y:10, z:70},
-        {x:65, y:0, z:80},
-        {x:65, y:-15, z:80}]
+      [{x:-150, y:-90, z:70},
+        {x:0, y:-90, z:20},
+        {x:0, y:-90, z:-5}]
       ));
 
 
@@ -68,41 +68,41 @@
     add3DPageToApp(
       pageFactory.createTirePressure(
       'tirePressureLF',
-      new THREE.Vector3(-150, -90, 0),
+      new THREE.Vector3(-150, -90, -100),
       new THREE.Vector3(0, 0, 0),
-      [{x:-150, y:-80, z:0},
-      {x:-90, y:-70, z:-30},
-      {x:-90, y:-55, z:-30}]
+      [{x:-150, y:-90, z:-90},
+      {x:-40, y:-60, z:-70},
+      {x:-40, y:-60, z:-50}]
       ));
 
     add3DPageToApp(
       pageFactory.createTirePressure(
       'tirePressureLR',
-      new THREE.Vector3(0, -90, 150),
+      new THREE.Vector3(-150, 90, -100),
       new THREE.Vector3(0, 0, 0),
-      [{x:0, y:-80, z:150},
-        {x:15, y:-70, z:80},
-        {x:15, y:-55, z:80}]
+      [{x:-150, y:90, z:-90},
+        {x:-40, y:90, z:-70},
+        {x:-40, y:90, z:-50}]
       ));
 
     add3DPageToApp(
       pageFactory.createTirePressure(
       'tirePressureRF',
-      new THREE.Vector3(150, -90, 0),
+      new THREE.Vector3(150, -90, -100),
       new THREE.Vector3(0, 0, 0),
-      [{x:150, y:-80, z:0},
-        {x:80, y:-70, z:20},
-        {x:80, y:-55, z:20}]
+      [{x:150, y:-90, z:-90},
+        {x:40, y:-70, z:-70},
+        {x:40, y:-70, z:-50}]
       ));
 
     add3DPageToApp(
       pageFactory.createTirePressure(
       'tirePressureRR',
-      new THREE.Vector3(0, -90, -150),
+      new THREE.Vector3(150, 90, -100),
       new THREE.Vector3(0, 0, 0),
-      [{x:0, y:-80, z:-150},
-        {x:0, y:-70, z:-150},
-        {x:-30, y:-55, z:-90}]
+      [{x:150, y:90, z:-90},
+        {x:40, y:90, z:-70},
+        {x:40, y:90, z:-50}]
       ));
 
     // loading reactjs components
