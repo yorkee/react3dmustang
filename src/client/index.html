@@ -25,12 +25,26 @@
     padding:0.3em;
     float:right;
   }
+  #menu {
+    float:right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 8em;    
+  }
   </style>
 </head>
 
 <body>
   <!-- Make header more responsive by -->
-  <div class="header"><img id="ford" src="public/img/Ford_Motor_Company_Logo.svg"/><img id="mustang" src="public/img/mustang.png"/></div>
+  <div class="header">
+    <img id="ford" src="public/img/Ford_Motor_Company_Logo.svg"/>
+    <a id="menu" href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="menu()">&#9776;</a>
+    <img id="mustang" src="public/img/mustang.png"/>
+
+  </div>
 
   <div id="content"></div>
   <script src="bower/jquery/dist/jquery.min.js"></script>

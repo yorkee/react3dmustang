@@ -1,8 +1,19 @@
 "use strict";
 
-  var controls, camera, glScene, cssScene, glRenderer, cssRenderer, pageFactory,
-    billboardList = [];
+  var controls, camera, glScene, cssScene, glRenderer, cssRenderer, 
+    pageFactory, carModel, 
+    billboardList = [], 
+    isHoodOpen = false;
 
+  //TODO:  menu button will open and close hood for now.  It should bring down menu and do somehing soon
+  function menu(){
+    if (isHoodOpen){
+      carModel.closeHood();      
+    } else {
+      carModel.openHood();
+    }
+    isHoodOpen = !isHoodOpen;
+  }
 
   function initialize() {
 
@@ -110,7 +121,7 @@
     script.src = "public/bundle.js"; // Set it's src to the provided URL
 
     document.head.appendChild(script);
-    load3DModel(glRenderer);
+    carModel = new CarModel(glRenderer);
     update();
   }
 
