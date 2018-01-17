@@ -9,7 +9,14 @@ On the side note, since I love Ford Mustang so much, I decided to create somethi
 
 I use what I learn from Henry Ford Maker Faire, as well as my react3d spike, to create this 3D model viewer:
 
+
 ![Screen Shot](https://user-images.githubusercontent.com/1068796/34903729-d14c2eb8-f805-11e7-9d86-f8daf04cd034.png?raw=true "Title")
+
+I can't capture hand control on a screenshot.  Here is a video of how it works:
+[![How this works](https://www.youtube.com/upload_thumbnail?v=jotvnm4EOf4&t=hqdefault&ts=1516161163414)](https://youtu.be/jotvnm4EOf4)
+
+
+
 
 ## Requirements
 - node 8.9.2 (anything from 6 to latest should work.  However, I haven't try them yet.)
