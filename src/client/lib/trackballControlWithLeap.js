@@ -582,10 +582,14 @@ console.log("Extended fingers: " + extendedFingers);
 						// var y = ( event.touches[ 0 ].pageY + event.touches[ 1 ].pageY ) / 2;
 						// _panStart.copy( getMouseOnScreen( x, y ) );
 						// _panEnd.copy( _panStart );          	
-          if (extendedFingers == 4){
+					if (extendedFingers == 2){
+						carModel.openLeftDoor();
+					} else if (extendedFingers == 3){
+						carModel.openRightDoor();
+					} else if (extendedFingers == 4){
           	carModel.openHood();
           } else {
-          	carModel.closeHood();
+          	carModel.resetAllPosition();
           }
 
           

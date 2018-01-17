@@ -1,7 +1,7 @@
 function CarModel(glRenderer) {
 
     // all movable parts so far
-    let wheelLF, wheelRF, wheelLR, wheelRR, bonnet;
+    let wheelLF, wheelRF, wheelLR, wheelRR, bonnet, doorLf, doorRf;
 
 
     load3DModel(glRenderer);
@@ -10,10 +10,31 @@ function CarModel(glRenderer) {
         openHood: openHood,
         closeHood: closeHood,
         setWheelSpeed: setWheelSpeed,
+        openLeftDoor: openLeftDoor,
+        closeLeftDoor: closeLeftDoor,
+        openRightDoor: openRightDoor,
+        closeRightDoor: closeRightDoor,
+        resetAllPosition: resetAllPosition
     }
 
     function setWheelSpeed(){
 
+    }
+
+    function openLeftDoor () {
+        doorLf.rotation.z = -60 * Math.PI / 180;
+    }
+
+    function closeLeftDoor () {
+        doorLf.rotation.z = 0;
+    }
+
+    function openRightDoor () {
+        doorRf.rotation.z = 60 * Math.PI / 180;
+    }
+
+    function closeRightDoor () {
+        doorRf.rotation.z = 0;
     }
 
     function openHood(){
@@ -22,6 +43,12 @@ function CarModel(glRenderer) {
 
     function closeHood(){
         bonnet.rotation.x = 0;
+    }
+
+    function resetAllPosition(){
+        closeLeftDoor();
+        closeRightDoor();
+        closeHood();
     }
 
   function load3DModel(glRenderer) {
@@ -38,12 +65,15 @@ function CarModel(glRenderer) {
     loader.load("./public/models/windows.json", addModelToScene);
     loader.load("./public/models/windscreen.json", addModelToScene);
 
-    loader.load("./public/models/doorlf1.json", addModelToScene);
-    loader.load("./public/models/doorlf2.json", addModelToScene);
-    loader.load("./public/models/doorlf3.json", addModelToScene);
-    loader.load("./public/models/doorrf1.json", addModelToScene);
-    loader.load("./public/models/doorrf2.json", addModelToScene);
-    loader.load("./public/models/doorrf3.json", addModelToScene);
+    // loader.load("./public/models/doorlf1.json", addModelToScene);
+    // loader.load("./public/models/doorlf2.json", addModelToScene);
+    // loader.load("./public/models/doorlf3.json", addModelToScene);
+    // loader.load("./public/models/doorrf1.json", addModelToScene);
+    // loader.load("./public/models/doorrf2.json", addModelToScene);
+    // loader.load("./public/models/doorrf3.json", addModelToScene);
+
+    loader.load("./public/models/doorlf.json", addLfDoorToScene);
+    loader.load("./public/models/doorrf.json", addRfDoorToScene);
 
     loader.load("./public/models/exhaust.json", addModelToScene);
     loader.load("./public/models/skirt1.json", addModelToScene);
@@ -125,6 +155,22 @@ function CarModel(glRenderer) {
 
     glScene.add(model);
   }
+
+  function addLfDoorToScene(geometry, materials) {
+        doorLf = new THREE.Mesh(geometry, materials);
+        doorLf.scale.set(0.5, 0.5, 0.5);
+        doorLf.position.set(52, -26, -22);
+        glScene.add(doorLf);
+  }
+
+  function addRfDoorToScene(geometry, materials) {
+        doorRf = new THREE.Mesh(geometry, materials);
+        doorRf.scale.set(0.5, 0.5, 0.5);
+        doorRf.position.set(-49, -26, -29);
+        glScene.add(doorRf);
+
+  }
+
 
     function addBonnetToScene(geometry, materials) {
         bonnet = new THREE.Mesh(geometry, materials);
