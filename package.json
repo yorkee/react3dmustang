@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --watch",
     "build": "webpack -p",
-    "postinstall": "./node_modules/bower/bin/bower install & webpack -p"
+    "postinstall": "./node_modules/bower/bin/bower install"
 },  
   "repository": {
     "type": "git",
