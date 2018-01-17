@@ -13,7 +13,7 @@ I use what I learn from Henry Ford Maker Faire, as well as my react3d spike, to 
 ![Screen Shot](https://user-images.githubusercontent.com/1068796/34903729-d14c2eb8-f805-11e7-9d86-f8daf04cd034.png?raw=true "Title")
 
 I can't capture hand control on a screenshot.  Here is a video of how it works:
-[![How this works](https://www.youtube.com/upload_thumbnail?v=jotvnm4EOf4&t=hqdefault&ts=1516161163414)](https://youtu.be/jotvnm4EOf4)
+[![How this works](https://i.ytimg.com/vi/jotvnm4EOf4/hqdefault.jpg)](https://youtu.be/jotvnm4EOf4)
 
 
 
