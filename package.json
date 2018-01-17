@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
-  },
+    "build": "webpack -p",
+    "postinstall": "./node_modules/bower/bin/bower install"
+},  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yorkee/react3d.git"
@@ -36,7 +37,8 @@
     "three-js": "^79.0.0",
     "three-stl-loader": "^1.0.6",
     "three-trackballcontrols": "0.0.7",
-    "webpack": "^3.9.1"
+    "webpack": "^3.9.1",
+    "bower": "0.6.x"
   },
   "devDependencies": {
     "babel-jest": "^22.0.6",
