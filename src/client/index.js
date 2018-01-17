@@ -6,7 +6,13 @@
     isHoodOpen = false;
 
   //TODO:  menu button will open and close hood for now.  It should bring down menu and do somehing soon
-  function menu(){
+  function menu(){  
+  //   console.log("hahhaa menu clicked.");
+  //   document.getElementById('menuJsxBox').setAttribute("data-value", "block");
+ 
+  // }
+
+  // function hood(){
     if (isHoodOpen){
       carModel.closeHood();      
     } else {
@@ -14,6 +20,7 @@
     }
     isHoodOpen = !isHoodOpen;
   }
+
 
   function initialize() {
 
