@@ -56,6 +56,7 @@ The app has bene hosed here:  https://react3dmustang.herokuapp.com/
 
 7. make the gauge smoother.
 
+8. fix header.  It should be a react component.
 
 ## credits/reference:
 
