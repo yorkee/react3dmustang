@@ -39,6 +39,24 @@ The app has bene hosed here:  https://react3dmustang.herokuapp.com/
 *note anything prior to init commit was explored in https://github.com/yorkee/react3d
 
 
+
+## the todo list
+
+1. turn the webGl / threejs part into browserify with modular archtecture.  It was okay in the beginning as code mash, but is getting out of control now.
+
+2. Jest running properly.  As of now, I already get a basic understanding of how Reactjs works.  It need to be tested to further build with more complicated data structure
+
+3. find a way to unit test threejs code.  
+
+4. Once the above structure works, try to have server.js serving the data via restful and have react component consuming the data.
+
+5. Skining the mustang.
+
+6. update the background.
+
+7. make the gauge smoother.
+
+
 ## credits/reference:
 
 Philippe Leefsma: Embedding webpages in a 3D Three.js scene
